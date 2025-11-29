@@ -1,0 +1,25 @@
+.calendar-grid {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-padding: 10;
+}
+
+.day-cell {
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+.day-header {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.lesson-entry {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 3;
+    -fx-padding: 3 5;
+    -fx-margin: 2 0;
+}

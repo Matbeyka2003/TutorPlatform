@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.teacher_calendar.controller.CalendarController"
+      spacing="10"
+      stylesheets="@/org/teacher_calendar/css/calendar.css">
+
+    <children>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Previous" fx:id="prevWeekButton" onAction="#handlePrevWeek"/>
+            <Label fx:id="weekLabel" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+            <Button text="Next" fx:id="nextWeekButton" onAction="#handleNextWeek"/>
+        </HBox>
+
+        <GridPane fx:id="calendarGrid" style="-fx-padding: 10;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS"/>
+            </rowConstraints>
+        </GridPane>
+    </children>
+</VBox>

@@ -1,0 +1,6 @@
+2025-11-27 21:20:30.329984+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+INSERT INTO users (id, username, password, timezone) VALUES (1, 'tutor', '$2a$10$8S0.3c7Q1Q2V3W4X5Y6Z7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v', 'Europe/Moscow') ON DUPLICATE KEY UPDATE id=id [42104-224]
+2025-11-27 21:28:07.270559+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LESSONS" not found (this database is empty); SQL statement:
+DELETE FROM lessons [42104-224]
