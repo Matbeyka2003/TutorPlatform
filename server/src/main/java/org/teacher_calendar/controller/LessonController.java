@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map; // Добавьте этот импорт
 
 @RestController
 @RequestMapping("/api/lessons")
@@ -67,5 +68,36 @@ public class LessonController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping("/{lessonId}/labels/{labelId}")
+    public ResponseEntity<LessonDto> addLabelToLesson(
+            @PathVariable("lessonId") Integer lessonId,
+            @PathVariable("labelId") Integer labelId) {
+        LessonDto updatedLesson = lessonService.addLabelToLesson(lessonId, labelId, userContext.getCurrentUserId());
+        return ResponseEntity.ok(updatedLesson);
+    }
+
+    @DeleteMapping("/{lessonId}/labels/{labelId}")
+    public ResponseEntity<LessonDto> removeLabelFromLesson(
+            @PathVariable("lessonId") Integer lessonId,
+            @PathVariable("labelId") Integer labelId) {
+        LessonDto updatedLesson = lessonService.removeLabelFromLesson(lessonId, labelId);
+        return ResponseEntity.ok(updatedLesson);
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<LessonDto> updateLessonStatus(
+            @PathVariable("id") Integer id,
+            @RequestBody Map<String, Boolean> statusUpdates) {
+
+        LessonDto lessonDto = new LessonDto();
+        lessonDto.setIsPaid(statusUpdates.getOrDefault("isPaid", false));
+        lessonDto.setRequiresPreparation(statusUpdates.getOrDefault("requiresPreparation", false));
+        lessonDto.setHomeworkSent(statusUpdates.getOrDefault("homeworkSent", false));
+        lessonDto.setIsTrial(statusUpdates.getOrDefault("isTrial", false));
+
+        LessonDto updatedLesson = lessonService.updateLesson(id, lessonDto, userContext.getCurrentUserId());
+        return ResponseEntity.ok(updatedLesson);
     }
 }

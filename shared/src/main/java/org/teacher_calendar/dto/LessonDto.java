@@ -1,6 +1,8 @@
 package org.teacher_calendar.dto;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LessonDto {
     private Integer id;
@@ -8,8 +10,10 @@ public class LessonDto {
     private ClientDto client;
     private String description;
     private Boolean isPaid = false;
-
-    // Добавляем новые поля для часовых поясов
+    private Boolean requiresPreparation = false;
+    private Boolean homeworkSent = false;
+    private Boolean isTrial = false;
+    private List<LabelDto> labels = new ArrayList<>();
     private String tutorTimezone;
     private String clientTimezone;
 
@@ -40,7 +44,18 @@ public class LessonDto {
     public Boolean getIsPaid() { return isPaid; }
     public void setIsPaid(Boolean paid) { isPaid = paid; }
 
-    // Геттеры и сеттеры для часовых поясов
+    public Boolean getRequiresPreparation() { return requiresPreparation; }
+    public void setRequiresPreparation(Boolean requiresPreparation) { this.requiresPreparation = requiresPreparation; }
+
+    public Boolean getHomeworkSent() { return homeworkSent; }
+    public void setHomeworkSent(Boolean homeworkSent) { this.homeworkSent = homeworkSent; }
+
+    public Boolean getIsTrial() { return isTrial; }
+    public void setIsTrial(Boolean trial) { isTrial = trial; }
+
+    public List<LabelDto> getLabels() { return labels; }
+    public void setLabels(List<LabelDto> labels) { this.labels = labels; }
+
     public String getTutorTimezone() { return tutorTimezone; }
     public void setTutorTimezone(String tutorTimezone) { this.tutorTimezone = tutorTimezone; }
 

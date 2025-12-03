@@ -1,11 +1,15 @@
 package org.teacher_calendar.util;
 
+import org.teacher_calendar.dto.LabelDto;
 import org.teacher_calendar.dto.ClientDto;
 import org.teacher_calendar.dto.LessonDto;
 import org.teacher_calendar.dto.UserDto;
+import org.teacher_calendar.entity.Label;
 import org.teacher_calendar.entity.Client;
 import org.teacher_calendar.entity.Lesson;
 import org.teacher_calendar.entity.User;
+
+import java.util.stream.Collectors;
 
 public class DtoConverter {
 
@@ -68,6 +72,33 @@ public class DtoConverter {
         return entity;
     }
 
+    // Label Entity -> DTO
+    public static LabelDto toDto(Label entity) {
+        if (entity == null) return null;
+
+        LabelDto dto = new LabelDto();
+        dto.setId(entity.getId());
+        dto.setName(entity.getName());
+        dto.setColor(entity.getColor());
+        dto.setEmoji(entity.getEmoji());
+
+        return dto;
+    }
+
+    // Label DTO -> Entity
+    public static Label toEntity(LabelDto dto) {
+        if (dto == null) return null;
+
+        Label entity = new Label();
+        entity.setId(dto.getId());
+        entity.setName(dto.getName());
+        entity.setColor(dto.getColor());
+        entity.setEmoji(dto.getEmoji());
+
+        // User устанавливается отдельно в сервисе
+        return entity;
+    }
+
     // Lesson Entity -> DTO
     public static LessonDto toDto(Lesson entity) {
         if (entity == null) return null;
@@ -77,6 +108,9 @@ public class DtoConverter {
         dto.setDateTime(entity.getDateTime());
         dto.setDescription(entity.getDescription());
         dto.setIsPaid(entity.getIsPaid());
+        dto.setRequiresPreparation(entity.getRequiresPreparation());
+        dto.setHomeworkSent(entity.getHomeworkSent());
+        dto.setIsTrial(entity.getIsTrial());
 
         if (entity.getTutorTimezone() != null) {
             dto.setTutorTimezone(entity.getTutorTimezone());
@@ -94,6 +128,13 @@ public class DtoConverter {
             dto.setClient(clientDto);
         }
 
+        // Конвертируем метки
+        if (entity.getLabels() != null) {
+            dto.setLabels(entity.getLabels().stream()
+                    .map(DtoConverter::toDto)
+                    .collect(Collectors.toList()));
+        }
+
         return dto;
     }
 
@@ -106,11 +147,15 @@ public class DtoConverter {
         entity.setDateTime(dto.getDateTime());
         entity.setDescription(dto.getDescription());
         entity.setIsPaid(dto.getIsPaid());
+        entity.setRequiresPreparation(dto.getRequiresPreparation());
+        entity.setHomeworkSent(dto.getHomeworkSent());
+        entity.setIsTrial(dto.getIsTrial());
         entity.setClient(client);
 
         entity.setTutorTimezone(dto.getTutorTimezone());
         entity.setClientTimezone(dto.getClientTimezone());
 
+        // Метки устанавливаются отдельно
         return entity;
     }
 }

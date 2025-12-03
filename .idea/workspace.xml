@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ada62fae-477e-4bdd-b6dc-6ab0af4c6635" name="Changes" comment="" />
+    <list default="true" id="ada62fae-477e-4bdd-b6dc-6ab0af4c6635" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/.eslintrc.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/LabelManager.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/pages/LabelsPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/services/clientService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/services/labelService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/services/lessonService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/utils/debug.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LabelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/entity/Label.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/repository/LabelRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LabelService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LabelDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LessonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/entity/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/entity/Lesson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/repository/LessonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/repository/LessonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LessonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/util/DtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/util/DtoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LessonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LessonDto.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,29 +46,39 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="35sWmw54OZp1YIBEHKIHScMLEgS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ClientLauncher.executor": "Run",
-    "Application.Tutor Client.executor": "Run",
-    "Application.TutorPlatformApplication.executor": "Run",
-    "Application.main client.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_directory_selection": "/Users/m.mosolov/Desktop/учеба/tutor-platform-full/client/src/main/java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1632184",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ClientLauncher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Tutor Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TutorPlatformApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.server.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/m.mosolov/Desktop/учеба/tutor-platform-full/client/src/main/java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1632184&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar" />
@@ -52,6 +89,13 @@
       <option name="MAIN_CLASS_NAME" value="org.teacher_calendar.Main" />
       <module name="client" />
       <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../javaStudy/javafx-sdk-21.0.9/lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="server" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.teacher_calendar.TutorPlatformApplication" />
+      <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -67,6 +111,10 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Tutor Client" />
+      <item itemvalue="Application.server" />
+    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

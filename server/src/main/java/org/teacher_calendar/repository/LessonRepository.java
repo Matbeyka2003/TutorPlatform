@@ -31,3 +31,4 @@ public interface LessonRepository extends JpaRepository<Lesson, Integer> {
                                     @Param("endOfWeek") LocalDateTime endOfWeek,
                                     @Param("user") User user);
 }
+

@@ -2,6 +2,8 @@ package org.teacher_calendar.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "lessons")
@@ -19,6 +21,15 @@ public class Lesson {
     @Column(name = "is_paid")
     private Boolean isPaid = false;
 
+    @Column(name = "requires_preparation")
+    private Boolean requiresPreparation = false;
+
+    @Column(name = "homework_sent")
+    private Boolean homeworkSent = false;
+
+    @Column(name = "is_trial")
+    private Boolean isTrial = false;
+
     @Column(name = "tutor_timezone")
     private String tutorTimezone;
 
@@ -32,6 +43,14 @@ public class Lesson {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @ManyToMany
+    @JoinTable(
+            name = "lesson_labels",
+            joinColumns = @JoinColumn(name = "lesson_id"),
+            inverseJoinColumns = @JoinColumn(name = "label_id")
+    )
+    private List<Label> labels = new ArrayList<>();
 
     // Конструкторы
     public Lesson() {}
@@ -67,4 +86,16 @@ public class Lesson {
 
     public String getClientTimezone() { return clientTimezone; }
     public void setClientTimezone(String clientTimezone) { this.clientTimezone = clientTimezone; }
+
+    public Boolean getRequiresPreparation() { return requiresPreparation; }
+    public void setRequiresPreparation(Boolean requiresPreparation) { this.requiresPreparation = requiresPreparation; }
+
+    public Boolean getHomeworkSent() { return homeworkSent; }
+    public void setHomeworkSent(Boolean homeworkSent) { this.homeworkSent = homeworkSent; }
+
+    public Boolean getIsTrial() { return isTrial; }
+    public void setIsTrial(Boolean trial) { isTrial = trial; }
+
+    public List<Label> getLabels() { return labels; }
+    public void setLabels(List<Label> labels) { this.labels = labels; }
 }

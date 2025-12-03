@@ -14,6 +14,7 @@
         <module>server</module>
         <module>client</module>
         <module>shared</module>
+        <module>client-react</module>
     </modules>
 
     <properties>

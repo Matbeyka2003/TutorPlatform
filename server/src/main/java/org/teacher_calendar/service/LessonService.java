@@ -2,9 +2,11 @@ package org.teacher_calendar.service;
 
 import org.teacher_calendar.dto.LessonDto;
 import org.teacher_calendar.entity.Client;
+import org.teacher_calendar.entity.Label;
 import org.teacher_calendar.entity.Lesson;
 import org.teacher_calendar.entity.User;
 import org.teacher_calendar.repository.ClientRepository;
+import org.teacher_calendar.repository.LabelRepository; // Добавьте этот импорт
 import org.teacher_calendar.repository.LessonRepository;
 import org.teacher_calendar.repository.UserRepository;
 import org.teacher_calendar.util.DtoConverter;
@@ -23,12 +25,18 @@ public class LessonService {
     private final LessonRepository lessonRepository;
     private final ClientRepository clientRepository;
     private final UserRepository userRepository;
+    private final LabelRepository labelRepository; // Измените тип
 
     @Autowired
-    public LessonService(LessonRepository lessonRepository, ClientRepository clientRepository, UserRepository userRepository) {
+    public LessonService(
+            LessonRepository lessonRepository,
+            ClientRepository clientRepository,
+            UserRepository userRepository,
+            LabelRepository labelRepository) { // Измените параметр
         this.lessonRepository = lessonRepository;
         this.clientRepository = clientRepository;
         this.userRepository = userRepository;
+        this.labelRepository = labelRepository;
     }
 
     // Получить все уроки для текущего пользователя
@@ -83,9 +91,9 @@ public class LessonService {
 
     // Обновить урок
     public LessonDto updateLesson(Integer id, LessonDto lessonDto, Integer userId) {
-        if (!lessonRepository.existsById(id)) {
-            return null;
-        }
+        // Находим существующий урок
+        Lesson existingLesson = lessonRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Lesson not found with id: " + id));
 
         // Найдем клиента
         Client client = clientRepository.findById(lessonDto.getClient().getId())
@@ -95,11 +103,19 @@ public class LessonService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        Lesson lesson = DtoConverter.toEntity(lessonDto, client);
-        lesson.setId(id);
-        lesson.setUser(user);
+        // Обновляем только необходимые поля, сохраняя метки
+        existingLesson.setClient(client);
+        existingLesson.setDateTime(lessonDto.getDateTime());
+        existingLesson.setDescription(lessonDto.getDescription());
+        existingLesson.setIsPaid(lessonDto.getIsPaid());
+        existingLesson.setRequiresPreparation(lessonDto.getRequiresPreparation());
+        existingLesson.setHomeworkSent(lessonDto.getHomeworkSent());
+        existingLesson.setIsTrial(lessonDto.getIsTrial());
+        existingLesson.setTutorTimezone(lessonDto.getTutorTimezone());
+        existingLesson.setClientTimezone(lessonDto.getClientTimezone());
+        existingLesson.setUser(user);
 
-        Lesson updatedLesson = lessonRepository.save(lesson);
+        Lesson updatedLesson = lessonRepository.save(existingLesson);
         return DtoConverter.toDto(updatedLesson);
     }
 
@@ -119,5 +135,38 @@ public class LessonService {
                 .stream()
                 .map(DtoConverter::toDto)
                 .collect(Collectors.toList());
+    }
+
+    public LessonDto addLabelToLesson(Integer lessonId, Integer labelId, Integer userId) {
+        Lesson lesson = lessonRepository.findById(lessonId)
+                .orElseThrow(() -> new RuntimeException("Lesson not found"));
+
+        Label label = labelRepository.findById(labelId)
+                .orElseThrow(() -> new RuntimeException("Label not found"));
+
+        // Проверяем, что метка принадлежит пользователю
+        if (!label.getUser().getId().equals(userId)) {
+            throw new RuntimeException("Label does not belong to user");
+        }
+
+        if (!lesson.getLabels().contains(label)) {
+            lesson.getLabels().add(label);
+            lessonRepository.save(lesson);
+        }
+
+        return DtoConverter.toDto(lesson);
+    }
+
+    public LessonDto removeLabelFromLesson(Integer lessonId, Integer labelId) {
+        Lesson lesson = lessonRepository.findById(lessonId)
+                .orElseThrow(() -> new RuntimeException("Lesson not found"));
+
+        Label label = labelRepository.findById(labelId)
+                .orElseThrow(() -> new RuntimeException("Label not found"));
+
+        lesson.getLabels().remove(label);
+        lessonRepository.save(lesson);
+
+        return DtoConverter.toDto(lesson);
     }
 }
