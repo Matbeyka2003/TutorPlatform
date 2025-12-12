@@ -9,6 +9,8 @@ import org.teacher_calendar.entity.Client;
 import org.teacher_calendar.entity.Lesson;
 import org.teacher_calendar.entity.User;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
 public class DtoConverter {
@@ -68,7 +70,6 @@ public class DtoConverter {
         entity.setDescription(dto.getDescription());
         entity.setLessonPrice(dto.getLessonPrice());
 
-        // User устанавливается отдельно в сервисе
         return entity;
     }
 
@@ -95,7 +96,6 @@ public class DtoConverter {
         entity.setColor(dto.getColor());
         entity.setEmoji(dto.getEmoji());
 
-        // User устанавливается отдельно в сервисе
         return entity;
     }
 
@@ -105,7 +105,17 @@ public class DtoConverter {
 
         LessonDto dto = new LessonDto();
         dto.setId(entity.getId());
-        dto.setDateTime(entity.getDateTime());
+
+        // Форматируем даты в строки
+        if (entity.getDateTime() != null) {
+            dto.setDateTime(DateTimeParser.formatLocalDateTime(entity.getDateTime()));
+        }
+
+        if (entity.getEndTime() != null) {
+            dto.setEndTime(DateTimeParser.formatLocalDateTime(entity.getEndTime()));
+        }
+
+        dto.setDurationMinutes(entity.getDurationMinutes());
         dto.setDescription(entity.getDescription());
         dto.setIsPaid(entity.getIsPaid());
         dto.setRequiresPreparation(entity.getRequiresPreparation());
@@ -120,12 +130,7 @@ public class DtoConverter {
         }
 
         if (entity.getClient() != null) {
-            ClientDto clientDto = new ClientDto();
-            clientDto.setId(entity.getClient().getId());
-            clientDto.setName(entity.getClient().getName());
-            clientDto.setPhone(entity.getClient().getPhone());
-            clientDto.setTimezone(entity.getClient().getTimezone());
-            dto.setClient(clientDto);
+            dto.setClient(toDto(entity.getClient()));
         }
 
         // Конвертируем метки
@@ -133,29 +138,43 @@ public class DtoConverter {
             dto.setLabels(entity.getLabels().stream()
                     .map(DtoConverter::toDto)
                     .collect(Collectors.toList()));
+
+            // Также сохраняем ID меток для удобства
+            dto.setLabelIds(entity.getLabels().stream()
+                    .map(Label::getId)
+                    .collect(Collectors.toList()));
         }
 
         return dto;
     }
 
-    // Lesson DTO -> Entity
+    // Lesson DTO -> Entity (базовое преобразование без меток)
     public static Lesson toEntity(LessonDto dto, Client client) {
         if (dto == null) return null;
 
         Lesson entity = new Lesson();
         entity.setId(dto.getId());
-        entity.setDateTime(dto.getDateTime());
+
+        // Парсим строки в LocalDateTime
+        if (dto.getDateTime() != null) {
+            entity.setDateTime(DateTimeParser.parseIsoToLocalDateTime(dto.getDateTime()));
+        }
+
+        if (dto.getEndTime() != null) {
+            entity.setEndTime(DateTimeParser.parseIsoToLocalDateTime(dto.getEndTime()));
+        }
+
+        entity.setDurationMinutes(dto.getDurationMinutes());
         entity.setDescription(dto.getDescription());
         entity.setIsPaid(dto.getIsPaid());
         entity.setRequiresPreparation(dto.getRequiresPreparation());
         entity.setHomeworkSent(dto.getHomeworkSent());
         entity.setIsTrial(dto.getIsTrial());
         entity.setClient(client);
-
         entity.setTutorTimezone(dto.getTutorTimezone());
         entity.setClientTimezone(dto.getClientTimezone());
 
-        // Метки устанавливаются отдельно
+        // Метки устанавливаются отдельно в сервисе
         return entity;
     }
 }

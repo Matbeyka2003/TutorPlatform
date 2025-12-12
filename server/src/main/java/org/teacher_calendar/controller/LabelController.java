@@ -1,6 +1,6 @@
 package org.teacher_calendar.controller;
 
-import org.teacher_calendar.dto.LabelDto;
+import org.teacher_calendar.dto.LabelDto; // Этот импорт должен быть
 import org.teacher_calendar.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/labels")
+@RequestMapping("/api/settings/labels")
 @CrossOrigin(origins = "*")
 public class LabelController {
 

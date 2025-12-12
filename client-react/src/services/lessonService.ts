@@ -22,15 +22,26 @@ class LessonService {
 
   // Создать занятие (отправляем только clientId, а не весь объект клиента)
   async createLesson(lesson: LessonCreate): Promise<Lesson> {
-    const response = await api.post<Lesson>('/lessons', lesson)
-    return response.data
+    // Если нет endTime, но есть durationMinutes, рассчитываем
+      if (!lesson.endTime && lesson.durationMinutes) {
+        const startDate = new Date(lesson.dateTime);
+        const endDate = new Date(startDate.getTime() + lesson.durationMinutes * 60 * 1000);
+        lesson.endTime = endDate.toISOString();
+      }
+    const response = await api.post<Lesson>('/lessons', lesson);
+    return response.data;
   }
 
-  // Обновить занятие
-  async updateLesson(id: number, lesson: Partial<LessonCreate>): Promise<Lesson> {
-    const response = await api.put<Lesson>(`/lessons/${id}`, lesson)
-    return response.data
+async updateLesson(id: number, lesson: Partial<LessonCreate>): Promise<Lesson> {
+  if (!lesson.endTime && lesson.durationMinutes) {
+    const startDate = new Date(lesson.dateTime);
+    const endDate = new Date(startDate.getTime() + lesson.durationMinutes * 60 * 1000);
+    lesson.endTime = endDate.toISOString();
   }
+
+  const response = await api.put<Lesson>(`/lessons/${id}`, lesson);
+  return response.data;
+}
 
   // Удалить занятие
   async deleteLesson(id: number): Promise<void> {

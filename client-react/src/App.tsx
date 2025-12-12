@@ -13,6 +13,7 @@ import CalendarPage from './pages/CalendarPage'
 import SettingsPage from './pages/SettingsPage'
 import PrivateRoute from './components/PrivateRoute'
 import LabelsPage from './pages/LabelsPage'
+import SimpleCalendar from './components/calendar/SimpleCalendar';
 // Создаем тему MUI
 const theme = createTheme({
   palette: {

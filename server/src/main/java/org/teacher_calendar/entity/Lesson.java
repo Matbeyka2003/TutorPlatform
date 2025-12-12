@@ -15,6 +15,12 @@ public class Lesson {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
+    @Column(name = "end_time")
+    private LocalDateTime endTime;
+
+    @Column(name = "duration_minutes")
+    private Integer durationMinutes = 45;
+
     @Column(length = 1000)
     private String description;
 
@@ -98,4 +104,22 @@ public class Lesson {
 
     public List<Label> getLabels() { return labels; }
     public void setLabels(List<Label> labels) { this.labels = labels; }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public Integer getDurationMinutes() {
+        return durationMinutes;
+    }
+
+    public void setDurationMinutes(Integer durationMinutes) {
+        this.durationMinutes = durationMinutes;
+    }
+
 }
+

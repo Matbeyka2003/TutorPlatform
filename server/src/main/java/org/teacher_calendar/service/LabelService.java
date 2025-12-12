@@ -59,6 +59,13 @@ public class LabelService {
         Label label = labelRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Label not found"));
 
+        // Проверяем уникальность имени, если оно изменилось
+        if (!label.getName().equals(labelDto.getName())) {
+            if (labelRepository.existsByNameAndUserId(labelDto.getName(), label.getUser().getId())) {
+                throw new RuntimeException("Label with this name already exists");
+            }
+        }
+
         label.setName(labelDto.getName());
         label.setColor(labelDto.getColor());
         label.setEmoji(labelDto.getEmoji());
@@ -80,5 +87,13 @@ public class LabelService {
         return labelRepository.findById(id)
                 .map(DtoConverter::toDto)
                 .orElse(null);
+    }
+
+    // Новый метод для получения меток по списку ID
+    public List<LabelDto> getLabelsByIds(List<Integer> ids) {
+        return labelRepository.findAllById(ids)
+                .stream()
+                .map(DtoConverter::toDto)
+                .collect(Collectors.toList());
     }
 }

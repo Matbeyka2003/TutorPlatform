@@ -1,26 +1,28 @@
 package org.teacher_calendar.dto;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LessonDto {
     private Integer id;
-    private LocalDateTime dateTime;
-    private ClientDto client;
+    private String dateTime; // ISO строка, например: "2024-01-20T10:00:00"
+    private String endTime; // ISO строка
+    private Integer durationMinutes = 60; // По умолчанию 60 минут
     private String description;
     private Boolean isPaid = false;
     private Boolean requiresPreparation = false;
     private Boolean homeworkSent = false;
     private Boolean isTrial = false;
     private List<LabelDto> labels = new ArrayList<>();
+    private List<Integer> labelIds = new ArrayList<>();
+    private ClientDto client;
     private String tutorTimezone;
     private String clientTimezone;
 
     // Конструкторы
     public LessonDto() {}
 
-    public LessonDto(Integer id, LocalDateTime dateTime, ClientDto client, String description, Boolean isPaid) {
+    public LessonDto(Integer id, String dateTime, ClientDto client, String description, Boolean isPaid) {
         this.id = id;
         this.dateTime = dateTime;
         this.client = client;
@@ -28,37 +30,119 @@ public class LessonDto {
         this.isPaid = isPaid;
     }
 
-    // Геттеры и сеттеры
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    // Геттеры и сеттеры для dateTime (String)
+    public String getDateTime() {
+        return dateTime;
+    }
 
-    public LocalDateTime getDateTime() { return dateTime; }
-    public void setDateTime(LocalDateTime dateTime) { this.dateTime = dateTime; }
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
 
-    public ClientDto getClient() { return client; }
-    public void setClient(ClientDto client) { this.client = client; }
+    // Геттеры и сеттеры для endTime (String)
+    public String getEndTime() {
+        return endTime;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
-    public Boolean getIsPaid() { return isPaid; }
-    public void setIsPaid(Boolean paid) { isPaid = paid; }
+    // Геттеры и сеттеры для durationMinutes
+    public Integer getDurationMinutes() {
+        return durationMinutes;
+    }
 
-    public Boolean getRequiresPreparation() { return requiresPreparation; }
-    public void setRequiresPreparation(Boolean requiresPreparation) { this.requiresPreparation = requiresPreparation; }
+    public void setDurationMinutes(Integer durationMinutes) {
+        this.durationMinutes = durationMinutes;
+    }
 
-    public Boolean getHomeworkSent() { return homeworkSent; }
-    public void setHomeworkSent(Boolean homeworkSent) { this.homeworkSent = homeworkSent; }
+    // Остальные геттеры и сеттеры
+    public Integer getId() {
+        return id;
+    }
 
-    public Boolean getIsTrial() { return isTrial; }
-    public void setIsTrial(Boolean trial) { isTrial = trial; }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public List<LabelDto> getLabels() { return labels; }
-    public void setLabels(List<LabelDto> labels) { this.labels = labels; }
+    public String getDescription() {
+        return description;
+    }
 
-    public String getTutorTimezone() { return tutorTimezone; }
-    public void setTutorTimezone(String tutorTimezone) { this.tutorTimezone = tutorTimezone; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public String getClientTimezone() { return clientTimezone; }
-    public void setClientTimezone(String clientTimezone) { this.clientTimezone = clientTimezone; }
+    public Boolean getIsPaid() {
+        return isPaid;
+    }
+
+    public void setIsPaid(Boolean paid) {
+        isPaid = paid;
+    }
+
+    public Boolean getRequiresPreparation() {
+        return requiresPreparation;
+    }
+
+    public void setRequiresPreparation(Boolean requiresPreparation) {
+        this.requiresPreparation = requiresPreparation;
+    }
+
+    public Boolean getHomeworkSent() {
+        return homeworkSent;
+    }
+
+    public void setHomeworkSent(Boolean homeworkSent) {
+        this.homeworkSent = homeworkSent;
+    }
+
+    public Boolean getIsTrial() {
+        return isTrial;
+    }
+
+    public void setIsTrial(Boolean trial) {
+        isTrial = trial;
+    }
+
+    public List<LabelDto> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<LabelDto> labels) {
+        this.labels = labels;
+    }
+
+    public List<Integer> getLabelIds() {
+        return labelIds;
+    }
+
+    public void setLabelIds(List<Integer> labelIds) {
+        this.labelIds = labelIds;
+    }
+
+    public ClientDto getClient() {
+        return client;
+    }
+
+    public void setClient(ClientDto client) {
+        this.client = client;
+    }
+
+    public String getTutorTimezone() {
+        return tutorTimezone;
+    }
+
+    public void setTutorTimezone(String tutorTimezone) {
+        this.tutorTimezone = tutorTimezone;
+    }
+
+    public String getClientTimezone() {
+        return clientTimezone;
+    }
+
+    public void setClientTimezone(String clientTimezone) {
+        this.clientTimezone = clientTimezone;
+    }
 }

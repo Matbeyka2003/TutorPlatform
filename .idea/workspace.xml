@@ -5,31 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ada62fae-477e-4bdd-b6dc-6ab0af4c6635" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/.eslintrc.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/src/components/LabelManager.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/src/pages/LabelsPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/src/services/clientService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/src/services/labelService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/src/services/lessonService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/src/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client-react/src/utils/debug.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LabelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/entity/Label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/repository/LabelRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LabelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LabelDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/calendar/Calendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/calendar/CalendarConfig.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/calendar/CalendarContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/calendar/CalendarEventCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/calendar/EnhancedCalendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/calendar/RescheduleDialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/calendar/SimpleCalendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/settings/BackupSettings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/settings/GeneralSettings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/components/settings/NotificationSettings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/constants/timezones.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/types/calendar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/utils/dateUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client-react/src/utils/timezoneUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/config/DataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/SettingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LabelCleanupService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/util/DateTimeParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-react/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client-react/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-react/src/layout/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client-react/src/layout/MainLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-react/src/pages/CalendarPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client-react/src/pages/CalendarPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-react/src/pages/SettingsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client-react/src/pages/SettingsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-react/src/services/labelService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client-react/src/services/labelService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-react/src/services/lessonService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client-react/src/services/lessonService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-react/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client-react/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/ClientLauncher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/controller/CalendarController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/controller/ClientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/http/ApiClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/teacher_calendar/service/DataManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/css/auth.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/css/calendar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/css/clients.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/view/AuthWindow.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/view/CalendarView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/view/ClientView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/org/teacher_calendar/view/MainWindow.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LabelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LabelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/controller/LessonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/entity/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/entity/Lesson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/repository/LessonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/repository/LessonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LabelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LabelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/service/LessonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/util/DtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/teacher_calendar/util/DtoConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LabelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LabelDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LessonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/org/teacher_calendar/dto/LessonDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +93,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.ClientLauncher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PasswordGenerator.executor&quot;: &quot;Run&quot;,
     &quot;Application.Tutor Client.executor&quot;: &quot;Run&quot;,
     &quot;Application.TutorPlatformApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.main client.executor&quot;: &quot;Run&quot;,

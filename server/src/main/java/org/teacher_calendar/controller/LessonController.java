@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map; // Добавьте этот импорт
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/lessons")
@@ -41,6 +41,12 @@ public class LessonController {
     @GetMapping("/client/{clientId}")
     public ResponseEntity<List<LessonDto>> getLessonsByClient(@PathVariable("clientId") Integer clientId) {
         List<LessonDto> lessons = lessonService.getLessonsByClient(clientId);
+        return ResponseEntity.ok(lessons);
+    }
+
+    @GetMapping("/label/{labelId}")
+    public ResponseEntity<List<LessonDto>> getLessonsByLabel(@PathVariable("labelId") Integer labelId) {
+        List<LessonDto> lessons = lessonService.getLessonsByLabel(labelId, userContext.getCurrentUserId());
         return ResponseEntity.ok(lessons);
     }
 
@@ -96,6 +102,19 @@ public class LessonController {
         lessonDto.setRequiresPreparation(statusUpdates.getOrDefault("requiresPreparation", false));
         lessonDto.setHomeworkSent(statusUpdates.getOrDefault("homeworkSent", false));
         lessonDto.setIsTrial(statusUpdates.getOrDefault("isTrial", false));
+
+        LessonDto updatedLesson = lessonService.updateLesson(id, lessonDto, userContext.getCurrentUserId());
+        return ResponseEntity.ok(updatedLesson);
+    }
+
+    // Новый эндпоинт для быстрого обновления меток
+    @PatchMapping("/{id}/labels")
+    public ResponseEntity<LessonDto> updateLessonLabels(
+            @PathVariable("id") Integer id,
+            @RequestBody List<Integer> labelIds) {
+
+        LessonDto lessonDto = new LessonDto();
+        lessonDto.setLabelIds(labelIds);
 
         LessonDto updatedLesson = lessonService.updateLesson(id, lessonDto, userContext.getCurrentUserId());
         return ResponseEntity.ok(updatedLesson);
